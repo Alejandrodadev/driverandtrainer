@@ -22,9 +22,9 @@ class UpdateJobRequest extends FormRequest
             'exit_time'    => ['required', 'date_format:H:i', 'after:entry_time'],
             
             // Expenses files (only to add new ones if empty before, or replace)
-            'expense_fuel'     => ['nullable', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:5120'],
-            'expense_food'     => ['nullable', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:5120'],
-            'expense_promoter' => ['nullable', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:5120'],
+            'expense_fuel'     => ['nullable', 'file', 'extensions:jpg,jpeg,png,pdf', 'max:10000'],
+            'expense_food'     => ['nullable', 'file', 'extensions:jpg,jpeg,png,pdf', 'max:10000'],
+            'expense_promoter' => ['nullable', 'file', 'extensions:jpg,jpeg,png,pdf', 'max:10000'],
         ];
     }
 
@@ -37,9 +37,9 @@ class UpdateJobRequest extends FormRequest
             'date'         => 'Fecha',
             'entry_time'   => 'Hora de entrada',
             'exit_time'    => 'Hora de salida',
-            'expense_fuel' => 'Gasto de gasoil',
-            'expense_food' => 'Gasto de comida',
-            'expense_promoter' => 'Gasto de promotora',
+            'expense_fuel' => 'Gasoil',
+            'expense_food' => 'Comida',
+            'expense_promoter' => 'Promotora',
         ];
     }
 }

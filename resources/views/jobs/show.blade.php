@@ -1,6 +1,14 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Volver -->
+            <a href="{{ route('jobs.index') }}" class="flex items-center gap-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white transition-all duration-200 mb-6 group">
+                <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                <span class="text-sm font-semibold tracking-wide">Volver al listado</span>
+            </a>
+
             <!-- Card -->
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
 
@@ -142,22 +150,22 @@
                                             x-transition:leave-end="opacity-0 -translate-y-2"
                                             class="border-t border-gray-100 dark:border-gray-700">
 
-                                            <div class="p-4 space-y-2 bg-gray-900/40">
+                                            <div class="p-4 space-y-2 bg-gray-50/50 dark:bg-gray-900/40">
                                                 @foreach($expenses as $expense)
-                                                    <div class="flex items-center justify-between px-4 py-3 bg-gray-700/40 rounded-xl
-                                                                border border-gray-100 dark:border-gray-700/60
+                                                    <div class="flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-700/40 rounded-xl
+                                                                border border-gray-200 dark:border-gray-700/60
                                                                 shadow-sm hover:shadow-md
                                                                 transition-shadow duration-150">
-
+                                                        
                                                         <div class="flex items-center gap-3">
                                                             <div class="w-8 h-8 flex items-center justify-center rounded-lg shrink-0
-                                                                        bg-gray-100 dark:bg-gray-700
-                                                                        text-gray-400 dark:text-gray-500">
+                                                                        bg-blue-50 dark:bg-gray-700
+                                                                        text-blue-500 dark:text-gray-500">
                                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                                                                 </svg>
                                                             </div>
-                                                            <span class="text-sm font-medium text-gray-600 dark:text-gray-300">
+                                                            <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">
                                                                 {{ $cat['label'] }} #{{ $loop->iteration }}
                                                             </span>
                                                         </div>

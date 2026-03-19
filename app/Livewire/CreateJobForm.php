@@ -54,14 +54,14 @@ class CreateJobForm extends Component
             'van'          => 'required|string|max:255',
             'date'         => 'required|date',
             'entry_time'   => 'required|date_format:H:i',
-            'exit_time'    => 'required|date_format:H:i', // Removed after:entry_time to allow midnight shifts
+            'exit_time'    => 'required|date_format:H:i',
 
             'expense_fuel'       => 'nullable|array|max:10',
-            'expense_fuel.*'     => 'file|mimes:jpg,jpeg,png,pdf|max:5120',
+            'expense_fuel.*'     => 'file|extensions:jpg,jpeg,png,pdf|max:10000',
             'expense_food'       => 'nullable|array|max:10',
-            'expense_food.*'     => 'file|mimes:jpg,jpeg,png,pdf|max:5120',
+            'expense_food.*'     => 'file|extensions:jpg,jpeg,png,pdf|max:10000',
             'expense_promoter'   => 'nullable|array|max:10',
-            'expense_promoter.*' => 'file|mimes:jpg,jpeg,png,pdf|max:5120',
+            'expense_promoter.*' => 'file|extensions:jpg,jpeg,png,pdf|max:10000',
         ];
     }
 
@@ -69,13 +69,14 @@ class CreateJobForm extends Component
     {
         return [
             'required' => 'El campo :attribute es obligatorio.',
-            'date_format' => 'El campo :attribute debe coincidir con el formato H:i.',
-            'date' => 'El campo :attribute debe ser una fecha válida.',
-            'after' => 'El campo :attribute debe ser una hora posterior a :date.',
-            'mimes' => 'El archivo :attribute debe ser de tipo: jpg, jpeg, png o pdf.',
+            'date_format' => 'El campo :attribute debe tener un formato de hora válido (H:i).',
+            'date' => 'La fecha ingresada en :attribute no es válida.',
+            'after' => 'La hora en :attribute debe ser posterior a la de inicio.',
+            'mimes' => 'Solo se permiten archivos JPG, PNG o PDF en :attribute.',
+            'extensions' => 'Solo se permiten archivos JPG, PNG o PDF en :attribute.',
             'max' => [
-                'file' => 'El archivo :attribute no debe pesar más de :max kilobytes.',
-                'string' => 'El campo :attribute no debe tener más de :max caracteres.',
+                'file' => 'El archivo en :attribute no puede superar los 5MB.',
+                'string' => 'El campo :attribute es demasiado largo (máximo :max caracteres).',
                 'array' => 'No puedes subir más de :max archivos en :attribute.',
             ],
         ];
@@ -91,8 +92,11 @@ class CreateJobForm extends Component
             'entry_time'   => 'Hora Entrada',
             'exit_time'    => 'Hora Salida',
             'expense_fuel' => 'Gasoil',
+            'expense_fuel.*' => 'Gasoil',
             'expense_food' => 'Comida',
+            'expense_food.*' => 'Comida',
             'expense_promoter' => 'Promotora',
+            'expense_promoter.*' => 'Promotora',
         ];
     }
 

@@ -11,7 +11,7 @@
                 </div>
                 <input type="text" 
                        wire:model.live.debounce.300ms="search"
-                       style="padding-left: 1.5rem;"
+                       style="padding-left: 2.5rem;"
                        class="block w-full py-2.5 pr-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                        placeholder="Buscar...">
             </div>
