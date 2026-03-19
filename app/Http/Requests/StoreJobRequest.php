@@ -24,11 +24,11 @@ class StoreJobRequest extends FormRequest
             
             // Expenses files (arrays for multiple upload)
             'expense_fuel'       => ['nullable', 'array', 'max:10'], // Max 10 files per category
-            'expense_fuel.*'     => ['file', 'mimes:jpg,jpeg,png,pdf', 'max:5120'],
+            'expense_fuel.*'     => ['file', 'extensions:jpg,jpeg,png,pdf', 'max:10000'],
             'expense_food'       => ['nullable', 'array', 'max:10'],
-            'expense_food.*'     => ['file', 'mimes:jpg,jpeg,png,pdf', 'max:5120'],
+            'expense_food.*'     => ['file', 'extensions:jpg,jpeg,png,pdf', 'max:10000'],
             'expense_promoter'   => ['nullable', 'array', 'max:10'],
-            'expense_promoter.*' => ['file', 'mimes:jpg,jpeg,png,pdf', 'max:5120'],
+            'expense_promoter.*' => ['file', 'extensions:jpg,jpeg,png,pdf', 'max:10000'],
         ];
     }
 
@@ -41,12 +41,12 @@ class StoreJobRequest extends FormRequest
             'date'         => 'Fecha',
             'entry_time'   => 'Hora de entrada',
             'exit_time'    => 'Hora de salida',
-            'expense_fuel' => 'Gastos de gasoil',
-            'expense_fuel.*' => 'Archivo de gasto de gasoil',
-            'expense_food' => 'Gastos de comida',
-            'expense_food.*' => 'Archivo de gasto de comida',
-            'expense_promoter' => 'Gastos de promotora',
-            'expense_promoter.*' => 'Archivo de gasto de promotora',
+            'expense_fuel' => 'Gasoil',
+            'expense_fuel.*' => 'Gasoil',
+            'expense_food' => 'Comida',
+            'expense_food.*' => 'Comida',
+            'expense_promoter' => 'Promotora',
+            'expense_promoter.*' => 'Promotora',
         ];
     }
 }
